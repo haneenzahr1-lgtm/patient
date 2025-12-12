@@ -1,0 +1,1772 @@
+
+                       Haneen Zahr, [12/12/2025 12:18 PM]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Information System (LIS)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-flask"></i>
+                <span>LIS System</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" data-page="dashboard" class="nav-link active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" data-page="registration" class="nav-link"><i class="fas fa-user-plus"></i> Registration</a></li>
+                <li><a href="#" data-page="test-orders" class="nav-link"><i class="fas fa-clipboard-list"></i> Test Orders</a></li>
+                <li><a href="#" data-page="sample-tracking" class="nav-link"><i class="fas fa-vial"></i> Sample Tracking</a></li>
+                <li><a href="#" data-page="results" class="nav-link"><i class="fas fa-chart-line"></i> Results</a></li>
+                <li><a href="#" data-page="reports" class="nav-link"><i class="fas fa-file-pdf"></i> Reports</a></li>
+                <li><a href="#" data-page="billing" class="nav-link"><i class="fas fa-receipt"></i> Billing</a></li>
+                <li><a href="#" data-page="patient-portal" class="nav-link"><i class="fas fa-user-circle"></i> Patient Portal</a></li>
+                <li><a href="#" data-page="medical-record" class="nav-link"><i class="fas fa-notes-medical"></i> Medical Record</a></li>
+                <li><a href="#" data-page="access-control" class="nav-link"><i class="fas fa-shield-alt"></i> Access Control</a></li>
+            </ul>
+            <div class="user-menu">
+                <span>Dr. Smith</span>
+                <i class="fas fa-user-md"></i>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        
+        <!-- Dashboard Section (Default Page) -->
+        <section id="dashboard" class="page active">
+            <div class="page-header">
+                <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                <p>Welcome to Laboratory Information System</p>
+            </div>
+            
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #4CAF50;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>1,254</h3>
+                        <p>Total Patients</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #2196F3;">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>328</h3>
+                        <p>Pending Tests</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #FF9800;">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>$45,230</h3>
+                        <p>Monthly Revenue</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #9C27B0;">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="stat-info">
+                        <h3>96%</h3>
+                        <p>Accuracy Rate</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <a href="#" data-page="registration" class="action-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Register New Patient
+                    </a>
+                    <a href="#" data-page="test-orders" class="action-btn">
+                        <i class="fas fa-clipboard-check"></i>
+                        Create Test Order
+                    </a>
+                    <a href="#" data-page="results" class="action-btn">
+                        <i class="fas fa-microscope"></i>
+                        Enter Test Results
+                    </a>
+                    <a href="#" data-page="billing" class="action-btn">
+                        <i class="fas fa-credit-card"></i>
+                        Process Payment
+                    </a>
+                </div>
+            </div>
+            
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <i class="fas fa-user-plus activity-icon success"></i>
+                        <div class="activity-details">
+                            <p>New patient registered: <strong>John Doe</strong></p>
+                            <span class="activity-time">10 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-vial activity-icon warning"></i>
+                        <div class="activity-details">
+                            <p>Sample collected for Order #ORD-2024-001</p>
+                            <span class="activity-time">25 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-file-pdf activity-icon info"></i>
+                        <div class="activity-details">
+                            <p>Report generated for Patient ID: P-2024-015</p>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-credit-card activity-icon success"></i>
+                        <div class="activity-details">
+                            <p>Payment received for Invoice #INV-2024-089</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Patient Registration Section -->
+        <section id="registration" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-user-plus"></i> Patient Registration</h1>
+                <p>Register new patients in the system</p>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-header">
+                    <h3><i class="fas fa-id-card"></i> Patient Information</h3>
+                    <div class="patient-id-display">
+                        Patient ID: <span id="generatedPatientId">P-2024-001</span>
+                    </div>
+                </div>
+                
+                <form id="patientRegistrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName"><i class="fas fa-user"></i> First Name *</label>
+                            <input type="text" id="firstName" required placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<label for="lastName"><i class="fas fa-user"></i> Last Name *</label>
+                            <input type="text" id="lastName" required placeholder="Enter last name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob"><i class="fas fa-birthday-cake"></i> Date of Birth *</label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-venus-mars"></i> Gender *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" checked>
+                                    <span class="radio-custom"></span>
+                                    Male
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female">
+                                    <span class="radio-custom"></span>
+                                    Female
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="other">
+                                    <span class="radio-custom"></span>
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="phone" required placeholder="Enter phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" placeholder="Enter email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address"><i class="fas fa-home"></i> Address</label>
+                        <textarea id="address" rows="2" placeholder="Enter full address"></textarea>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4><i class="fas fa-user-friends"></i> Emergency Contact</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="emergencyName">Contact Name *</label>
+                                <input type="text" id="emergencyName" required placeholder="Emergency contact name">
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyRelation">Relationship *</label>
+                                <input type="text" id="emergencyRelation" required placeholder="e.g., Spouse, Parent">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencyPhone">Contact Phone *</label>
+                            <input type="tel" id="emergencyPhone" required placeholder="Emergency contact phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="generatePatientId">
+                            <i class="fas fa-sync-alt"></i> Generate New ID
+                        </button>
+                        <button type="submit" class="btn-primary">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<i class="fas fa-save"></i> Save Patient Record
+                        </button>
+                        <button type="button" class="btn-outline" id="cancelRegistration">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Test Orders Section -->
+        <section id="test-orders" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-clipboard-list"></i> Test Orders</h1>
+                <p>Create and manage laboratory test orders</p>
+            </div>
+            
+            <div class="order-container">
+                <div class="search-patient">
+                    <h3><i class="fas fa-search"></i> Find Patient</h3>
+                    <div class="search-box">
+                        <input type="text" id="patientSearch" placeholder="Search by Patient ID, Name, or Phone">
+                        <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    
+                    <div class="patient-info-card" id="patientInfoCard">
+                        <div class="patient-header">
+                            <h4>Patient Information</h4>
+                            <span class="patient-id">ID: P-2024-001</span>
+                        </div>
+                        <div class="patient-details">
+                            <p><strong>Name:</strong> John Doe</p>
+                            <p><strong>Age:</strong> 32 years</p>
+                            <p><strong>Gender:</strong> Male</p>
+                            <p><strong>Last Visit:</strong> 2024-03-15</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-order-form">
+                    <h3><i class="fas fa-plus-circle"></i> Add Tests</h3>
+                    
+                    <div class="test-selection">
+                        <div class="form-group">
+                            <label for="testType">Select Test</label>
+                            <select id="testType">
+                                <option value="">-- Choose a test --</option>
+                                <option value="cbc">Complete Blood Count (CBC)</option>
+                                <option value="lipid">Lipid Profile</option>
+                                <option value="liver">Liver Function Test</option>
+                                <option value="kidney">Kidney Function Test</option>
+                                <option value="urinalysis">Urinalysis</option>
+                                <option value="glucose">Glucose Test</option>
+                                <option value="thyroid">Thyroid Panel</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <div class="priority-buttons">
+                                <button type="button" class="priority-btn routine active">Routine</button>
+                                <button type="button" class="priority-btn urgent">Urgent</button>
+                                <button type="button" class="priority-btn stat">STAT</button>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-add-test" id="addTestBtn">
+                            <i class="fas fa-plus"></i> Add Test to Order
+                        </button>
+                    </div>
+                    
+                    <div class="current-orders">
+                        <h4>Current Order Items</h4>
+                        <div class="orders-table">
+                            <div class="table-header">
+                                <div class="col-test">Test Name</div>
+                                <div class="col-priority">Priority</div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="col-status">Inventory Check</div>
+                                <div class="col-actions">Actions</div>
+                            </div>
+                            <div class="table-body">
+                                <div class="table-row">
+                                    <div class="col-test">Complete Blood Count (CBC)</div>
+                                    <div class="col-priority"><span class="badge routine">Routine</span></div>
+                                    <div class="col-status"><span class="badge success"><i class="fas fa-check"></i> In Stock</span></div>
+                                    <div class="col-actions">
+                                        <button class="btn-icon danger" title="Remove"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="col-test">Lipid Profile</div>
+                                    <div class="col-priority"><span class="badge urgent">Urgent</span></div>
+                                    <div class="col-status"><span class="badge warning"><i class="fas fa-exclamation-triangle"></i> Low Stock</span></div>
+                                    <div class="col-actions">
+                                        <button class="btn-icon danger" title="Remove"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-actions">
+                        <button class="btn-secondary" id="checkInventoryBtn">
+                            <i class="fas fa-boxes"></i> Check Full Inventory
+                        </button>
+                        <button class="btn-primary" id="submitOrderBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Order
+                        </button>
+                        <button class="btn-outline" id="clearOrderBtn">
+                            <i class="fas fa-times"></i> Clear Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sample Tracking Section -->
+        <section id="sample-tracking" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-vial"></i> Sample Tracking</h1>
+                <p>Track and manage laboratory samples</p>
+            </div>
+            
+            <div class="tracking-container">
+                <div class="tracking-header">
+                    <div class="tracking-info">
+                        <h3>Order #ORD-2024-001</h3>
+                        <p>Patient: John Doe (ID: P-2024-001)</p>
+                        <p>Order Date: 2024-03-15</p>
+                    </div>
+                    <div class="tracking-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-vial"></i> Collect New Sample
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="samples-list">
+                    <h3><i class="fas fa-list"></i> Samples</h3>
+                    
+                    <div class="sample-card">
+                        <div class="sample-header">
+                            <div class="sample-id">
+                                <i class="fas fa-vial"></i>
+                                <strong>SAMP-001</strong>
+                            </div>
+                            <div class="sample-status">
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                        </div>
+                        <div class="sample-details">
+                            <p><strong>Test:</strong> Complete Blood Count (CBC)</p>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<p><strong>Collection Time:</strong> 2024-03-15 09:30 AM</p>
+                            <p><strong>Collected By:</strong> Technician Smith</p>
+                            <p><strong>Expected Result:</strong> 2024-03-15 02:00 PM</p>
+                        </div>
+                        <div class="sample-actions">
+                            <button class="btn-small primary">
+                                <i class="fas fa-edit"></i> Update Status
+                            </button>
+                            <button class="btn-small warning">
+                                <i class="fas fa-exclamation-triangle"></i> Report Issue
+                            </button>
+                            <button class="btn-small success">
+                                <i class="fas fa-microscope"></i> Enter Results
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-card">
+                        <div class="sample-header">
+                            <div class="sample-id">
+                                <i class="fas fa-vial"></i>
+                                <strong>SAMP-002</strong>
+                            </div>
+                            <div class="sample-status">
+                                <span class="status-badge ready">Ready</span>
+                            </div>
+                        </div>
+                        <div class="sample-details">
+                            <p><strong>Test:</strong> Lipid Profile</p>
+                            <p><strong>Collection Time:</strong> 2024-03-15 09:35 AM</p>
+                            <p><strong>Collected By:</strong> Technician Smith</p>
+                            <p><strong>Result Ready:</strong> 2024-03-15 11:00 AM</p>
+                        </div>
+                        <div class="sample-actions">
+                            <button class="btn-small primary">
+                                <i class="fas fa-edit"></i> Update Status
+                            </button>
+                            <button class="btn-small danger">
+                                <i class="fas fa-times-circle"></i> Mark Damaged
+                            </button>
+                            <button class="btn-small success">
+                                <i class="fas fa-file-medical-alt"></i> View Results
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-card">
+                        <div class="sample-header">
+                            <div class="sample-id">
+                                <i class="fas fa-vial"></i>
+                                <strong>SAMP-003</strong>
+                            </div>
+                            <div class="sample-status">
+                                <span class="status-badge damaged">Damaged</span>
+                            </div>
+                        </div>
+                        <div class="sample-details">
+                            <p><strong>Test:</strong> Liver Function Test</p>
+                            <p><strong>Collection Time:</strong> 2024-03-15 09:40 AM</p>
+                            <p><strong>Collected By:</strong> Technician Smith</p>
+                            <p><strong>Issue:</strong> Sample hemolyzed during collection</p>
+                        </div>
+                        <div class="sample-actions">
+                            <button class="btn-small primary">
+                                <i class="fas fa-redo"></i> Re-collect
+                            </button>
+                            <button class="btn-small info">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-update-form">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<h3><i class="fas fa-edit"></i> Update Sample Status</h3>
+                    <div class="form-group">
+                        <label for="sampleSelect">Select Sample</label>
+                        <select id="sampleSelect">
+                            <option value="">-- Select Sample --</option>
+                            <option value="SAMP-001">SAMP-001 (CBC)</option>
+                            <option value="SAMP-002">SAMP-002 (Lipid Profile)</option>
+                            <option value="SAMP-003">SAMP-003 (Liver Function)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="statusSelect">New Status</label>
+                        <select id="statusSelect">
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="ready">Ready</option>
+                            <option value="damaged">Damaged</option>
+                            <option value="lost">Lost</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="statusNotes">Notes</label>
+                        <textarea id="statusNotes" rows="3" placeholder="Add notes about status change..."></textarea>
+                    </div>
+                    
+                    <button class="btn-primary">
+                        <i class="fas fa-save"></i> Update Status
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Results Section -->
+        <section id="results" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-chart-line"></i> Test Results</h1>
+                <p>Enter and validate laboratory test results</p>
+            </div>
+            
+            <div class="results-container">
+                <div class="results-search">
+                    <h3><i class="fas fa-search"></i> Find Test Results</h3>
+                    <div class="search-results">
+                        <input type="text" id="resultsSearch" placeholder="Search by Patient ID, Order ID, or Sample ID">
+                        <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+                
+                <div class="results-card">
+                    <div class="results-header">
+                        <div class="patient-info">
+                            <h3>John Doe</h3>
+                            <p>Patient ID: P-2024-001 | Age: 32 | Gender: Male</p>
+                        </div>
+                        <div class="test-info">
+                            <h4>Complete Blood Count (CBC)</h4>
+                            <p>Sample ID: SAMP-001 | Order Date: 2024-03-15</p>
+                        </div>
+                    </div>
+                    
+                    <div class="results-table">
+                        <div class="table-header">
+                            <div class="col-parameter">Parameter</div>
+                            <div class="col-value">Result</div>
+                            <div class="col-unit">Unit</div>
+                            <div class="col-range">Reference Range</div>
+                            <div class="col-status">Status</div>
+                            <div class="col-flag">Flag</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-parameter">Hemoglobin</div>
+                            <div class="col-value">
+                                <input type="text" value="14.2" class="result-input">
+                            </div>
+                            <div class="col-unit">g/dL</div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="col-range">13.5 - 17.5</div>
+                            <div class="col-status"><span class="badge success">Normal</span></div>
+                            <div class="col-flag">
+                                <button class="btn-icon small"><i class="far fa-flag"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-parameter">White Blood Cells (WBC)</div>
+                            <div class="col-value">
+                                <input type="text" value="7.8" class="result-input">
+                            </div>
+                            <div class="col-unit">K/µL</div>
+                            <div class="col-range">4.5 - 11.0</div>
+                            <div class="col-status"><span class="badge success">Normal</span></div>
+                            <div class="col-flag">
+                                <button class="btn-icon small"><i class="far fa-flag"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row abnormal">
+                            <div class="col-parameter">Red Blood Cells (RBC)</div>
+                            <div class="col-value">
+                                <input type="text" value="4.9" class="result-input">
+                            </div>
+                            <div class="col-unit">M/µL</div>
+                            <div class="col-range">4.7 - 6.1</div>
+                            <div class="col-status"><span class="badge warning">Low</span></div>
+                            <div class="col-flag">
+                                <button class="btn-icon small warning active"><i class="fas fa-flag"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-parameter">Platelets</div>
+                            <div class="col-value">
+                                <input type="text" value="210" class="result-input">
+                            </div>
+                            <div class="col-unit">K/µL</div>
+                            <div class="col-range">150 - 450</div>
+                            <div class="col-status"><span class="badge success">Normal</span></div>
+                            <div class="col-flag">
+                                <button class="btn-icon small"><i class="far fa-flag"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-parameter">Hematocrit</div>
+                            <div class="col-value">
+                                <input type="text" value="42.5" class="result-input">
+                            </div>
+                            <div class="col-unit">%</div>
+                            <div class="col-range">40.0 - 52.0</div>
+                            <div class="col-status"><span class="badge success">Normal</span></div>
+                            <div class="col-flag">
+                                <button class="btn-icon small"><i class="far fa-flag"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-notes">
+                        <div class="form-group">
+                            <label for="resultNotes">Interpretation Notes</label>
+                            <textarea id="resultNotes" rows="3">Results indicate mild anemia. Recommend iron studies and follow-up in 3 months.</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <div class="action-buttons">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<button class="btn-warning" id="flagAbnormalBtn">
+                                <i class="fas fa-flag"></i> Flag Abnormal Values
+                            </button>
+                            <button class="btn-secondary" id="validateResultsBtn">
+                                <i class="fas fa-check-double"></i> Validate Results
+                            </button>
+                            <button class="btn-primary" id="saveResultsBtn">
+                                <i class="fas fa-save"></i> Save Results
+                            </button>
+                        </div>
+                        
+                        <div class="additional-actions">
+                            <button class="btn-outline" id="printResultsBtn">
+                                <i class="fas fa-print"></i> Print
+                            </button>
+                            <button class="btn-outline" id="downloadResultsBtn">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Reports Section -->
+        <section id="reports" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-file-pdf"></i> Reports</h1>
+                <p>Generate and manage laboratory reports</p>
+            </div>
+            
+            <div class="reports-container">
+                <div class="reports-search">
+                    <h3><i class="fas fa-search"></i> Find Patient Reports</h3>
+                    <div class="search-section">
+                        <div class="form-group">
+                            <label for="reportPatientId">Patient ID</label>
+                            <input type="text" id="reportPatientId" placeholder="Enter Patient ID" value="P-2024-001">
+                            <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+                        </div>
+                        
+                        <div class="patient-info-mini">
+                            <p><strong>Patient:</strong> John Doe</p>
+                            <p><strong>Total Reports:</strong> 5</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reports-list">
+                    <h3><i class="fas fa-history"></i> Available Reports</h3>
+                    
+                    <div class="reports-table">
+                        <div class="table-header">
+                            <div class="col-date">Date</div>
+                            <div class="col-test">Test Name</div>
+                            <div class="col-doctor">Ordering Doctor</div>
+                            <div class="col-status">Status</div>
+                            <div class="col-actions">Actions</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-date">2024-03-15</div>
+                            <div class="col-test">Complete Blood Count (CBC)</div>
+                            <div class="col-doctor">Dr. Smith</div>
+                            <div class="col-status"><span class="badge success">Finalized</span></div>
+                            <div class="col-actions">
+                                <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                <button class="btn-icon" title="Print"><i class="fas fa-print"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-date">2024-03-15</div>
+                            <div class="col-test">Lipid Profile</div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="col-doctor">Dr. Smith</div>
+                            <div class="col-status"><span class="badge success">Finalized</span></div>
+                            <div class="col-actions">
+                                <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                <button class="btn-icon" title="Print"><i class="fas fa-print"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-date">2024-03-10</div>
+                            <div class="col-test">Liver Function Test</div>
+                            <div class="col-doctor">Dr. Johnson</div>
+                            <div class="col-status"><span class="badge success">Finalized</span></div>
+                            <div class="col-actions">
+                                <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                <button class="btn-icon" title="Print"><i class="fas fa-print"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-date">2024-03-05</div>
+                            <div class="col-test">Urinalysis</div>
+                            <div class="col-doctor">Dr. Williams</div>
+                            <div class="col-status"><span class="badge success">Finalized</span></div>
+                            <div class="col-actions">
+                                <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Download"><i class="fas fa-download"></i></button>
+                                <button class="btn-icon" title="Print"><i class="fas fa-print"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-date">2024-02-28</div>
+                            <div class="col-test">Thyroid Panel</div>
+                            <div class="col-doctor">Dr. Brown</div>
+                            <div class="col-status"><span class="badge pending">Pending Review</span></div>
+                            <div class="col-actions">
+                                <button class="btn-icon" title="View"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-generation">
+                    <h3><i class="fas fa-file-medical-alt"></i> Generate New Report</h3>
+                    <div class="generation-form">
+                        <div class="form-group">
+                            <label for="reportType">Report Type</label>
+                            <select id="reportType">
+                                <option value="single">Single Test Report</option>
+                                <option value="full">Full Patient Summary</option>
+                                <option value="periodic">Periodic Health Report</option>
+                                <option value="custom">Custom Report</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reportPeriod">Time Period</label>
+                            <div class="date-range">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<input type="date" id="reportStartDate" value="2024-01-01">
+                                <span>to</span>
+                                <input type="date" id="reportEndDate" value="2024-03-15">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="includeOptions">Include</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Test Results
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Patient Information
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="checkbox-custom"></span>
+                                    Billing Information
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="checkbox-custom"></span>
+                                    Doctor Notes
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-file-pdf"></i> Generate PDF Report
+                            </button>
+                            <button class="btn-outline">
+                                <i class="fas fa-eye"></i> Preview Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Billing Section -->
+        <section id="billing" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-receipt"></i> Billing & Payments</h1>
+                <p>Manage patient invoices and payment processing</p>
+            </div>
+            
+            <div class="billing-container">
+                <div class="billing-search">
+                    <h3><i class="fas fa-search"></i> Find Patient Billing</h3>
+                    <div class="search-section">
+                        <div class="form-group">
+                            <label for="billingPatientId">Patient ID</label>
+                            <div class="search-with-btn">
+                                <input type="text" id="billingPatientId" placeholder="Enter Patient ID" value="P-2024-001">
+                                <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="patient-billing-summary">
+                        <div class="summary-card">
+                            <div class="summary-header">
+                                <h4>John Doe</h4>
+                                <span class="patient-id">ID: P-2024-001</span>
+                            </div>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span class="label">Total Due:</span>
+                                    <span class="value amount-due">$275.00</span>
+                                </div>
+                                <div class="summary-item">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<span class="label">Last Payment:</span>
+                                    <span class="value">$150.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Payment Status:</span>
+                                    <span class="value status-unpaid">Unpaid</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Last Invoice:</span>
+                                    <span class="value">INV-2024-089</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="invoice-details">
+                    <div class="invoice-header">
+                        <h3><i class="fas fa-file-invoice-dollar"></i> Invoice Details</h3>
+                        <div class="invoice-actions">
+                            <button class="btn-outline">
+                                <i class="fas fa-edit"></i> Edit Invoice
+                            </button>
+                            <button class="btn-primary">
+                                <i class="fas fa-plus"></i> New Invoice
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-card">
+                        <div class="invoice-info">
+                            <div class="invoice-id">
+                                <strong>Invoice #:</strong> INV-2024-089
+                            </div>
+                            <div class="invoice-date">
+                                <strong>Date:</strong> 2024-03-15
+                            </div>
+                            <div class="invoice-status">
+                                <span class="badge warning">Pending Payment</span>
+                            </div>
+                        </div>
+                        
+                        <div class="invoice-table">
+                            <div class="table-header">
+                                <div class="col-item">Item Description</div>
+                                <div class="col-qty">Qty</div>
+                                <div class="col-price">Unit Price</div>
+                                <div class="col-total">Total</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-item">Complete Blood Count (CBC)</div>
+                                <div class="col-qty">1</div>
+                                <div class="col-price">$50.00</div>
+                                <div class="col-total">$50.00</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-item">Lipid Profile</div>
+                                <div class="col-qty">1</div>
+                                <div class="col-price">$100.00</div>
+                                <div class="col-total">$100.00</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-item">Doctor Consultation</div>
+                                <div class="col-qty">1</div>
+                                <div class="col-price">$100.00</div>
+                                <div class="col-total">$100.00</div>
+                            </div>
+                            
+                            <div class="table-row separator">
+                                <div class="col-item"></div>
+                                <div class="col-qty"></div>
+                                <div class="col-price"><strong>Subtotal:</strong></div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="col-total">$250.00</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-item"></div>
+                                <div class="col-qty"></div>
+                                <div class="col-price"><strong>Tax (10%):</strong></div>
+                                <div class="col-total">$25.00</div>
+                            </div>
+                            
+                            <div class="table-row total">
+                                <div class="col-item"></div>
+                                <div class="col-qty"></div>
+                                <div class="col-price"><strong>Total Amount:</strong></div>
+                                <div class="col-total">$275.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-processing">
+                    <h3><i class="fas fa-credit-card"></i> Payment Processing</h3>
+                    
+                    <div class="payment-form">
+                        <div class="form-group">
+                            <label for="paymentAmount">Payment Amount ($)</label>
+                            <input type="number" id="paymentAmount" value="275.00" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod">
+                                <option value="cash">Cash</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="insurance">Insurance</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="check">Check</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentReference">Reference/Transaction ID</label>
+                            <input type="text" id="paymentReference" placeholder="Enter reference number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentNotes">Notes</label>
+                            <textarea id="paymentNotes" rows="2" placeholder="Add payment notes..."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-check-circle"></i> Record Payment
+                            </button>
+                            <button class="btn-secondary">
+                                <i class="fas fa-percentage"></i> Apply Discount
+                            </button>
+                            <button class="btn-outline">
+                                <i class="fas fa-print"></i> Print Receipt
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Patient Portal Section -->
+        <section id="patient-portal" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-user-circle"></i> Patient Portal</h1>
+                <p>Patient self-service portal</p>
+            </div>
+            
+            <div class="portal-container">
+                <div class="portal-sidebar">
+                    <div class="portal-user">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="user-info">
+                            <h4>John Doe</h4>
+                            <p>Patient ID: P-2024-001</p>
+                            <p class="user-email">john.doe@email.com</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="portal-menu">
+                        <a href="#" class="portal-menu-item active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="#" class="portal-menu-item">
+                            <i class="fas fa-file-medical-alt"></i>
+                            <span>Test Results</span>
+                        </a>
+                        <a href="#" class="portal-menu-item">
+                            <i class="fas fa-receipt"></i>
+                            <span>Bills & Payments</span>
+                        </a>
+                        <a href="#" class="portal-menu-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Appointments</span>
+                        </a>
+                        <a href="#" class="portal-menu-item">
+                            <i class="fas fa-prescription"></i>
+                            <span>Prescriptions</span>
+                        </a>
+                        <a href="#" class="portal-menu-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </nav>
+                </div>
+                
+                <div class="portal-content">
+                    <div class="portal-welcome">
+                        <h2>Welcome back, John!</h2>
+                        <p>Here's your medical summary</p>
+                    </div>
+                    
+                    <div class="portal-cards">
+                        <div class="portal-card">
+                            <div class="portal-card-header">
+                                <i class="fas fa-file-medical-alt"></i>
+                                <h4>Recent Test Results</h4>
+                            </div>
+                            <div class="portal-card-body">
+                                <div class="result-item">
+                                    <div class="result-test">Complete Blood Count</div>
+                                    <div class="result-date">March 15, 2024</div>
+                                    <div class="result-status">
+                                        <span class="badge success">Available</span>
+                                    </div>
+                                    <button class="btn-small"><i class="fas fa-eye"></i> View</button>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-test">Lipid Profile</div>
+                                    <div class="result-date">March 15, 2024</div>
+                                    <div class="result-status">
+                                        <span class="badge success">Available</span>
+                                    </div>
+                                    <button class="btn-small"><i class="fas fa-eye"></i> View</button>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-test">Liver Function Test</div>
+                                    <div class="result-date">March 10, 2024</div>
+                                    <div class="result-status">
+                                        <span class="badge success">Available</span>
+                                    </div>
+                                    <button class="btn-small"><i class="fas fa-eye"></i> View</button>
+                                </div>
+                            </div>
+                            <div class="portal-card-footer">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<a href="#">View All Results →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="portal-card">
+                            <div class="portal-card-header">
+                                <i class="fas fa-receipt"></i>
+                                <h4>Billing Status</h4>
+                            </div>
+                            <div class="portal-card-body">
+                                <div class="billing-summary">
+                                    <div class="billing-item">
+                                        <span class="label">Current Balance:</span>
+                                        <span class="value amount-due">$275.00</span>
+                                    </div>
+                                    <div class="billing-item">
+                                        <span class="label">Last Payment:</span>
+                                        <span class="value">$150.00 (March 1)</span>
+                                    </div>
+                                    <div class="billing-item">
+                                        <span class="label">Status:</span>
+                                        <span class="value status-unpaid">Payment Due</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portal-card-footer">
+                                <button class="btn-primary">
+                                    <i class="fas fa-credit-card"></i> Pay Now
+                                </button>
+                                <a href="#">View Invoices →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="portal-card">
+                            <div class="portal-card-header">
+                                <i class="fas fa-calendar-check"></i>
+                                <h4>Upcoming Appointments</h4>
+                            </div>
+                            <div class="portal-card-body">
+                                <div class="appointment-item">
+                                    <div class="appointment-details">
+                                        <strong>Follow-up Consultation</strong>
+                                        <p>Dr. Smith</p>
+                                        <p>March 20, 2024 at 10:00 AM</p>
+                                    </div>
+                                    <div class="appointment-actions">
+                                        <button class="btn-icon small warning" title="Reschedule">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </button>
+                                        <button class="btn-icon small danger" title="Cancel">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="appointment-item">
+                                    <div class="appointment-details">
+                                        <strong>Annual Check-up</strong>
+                                        <p>Dr. Johnson</p>
+                                        <p>April 5, 2024 at 2:30 PM</p>
+                                    </div>
+                                    <div class="appointment-actions">
+                                        <button class="btn-icon small warning" title="Reschedule">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </button>
+                                        <button class="btn-icon small danger" title="Cancel">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+</div>
+                                </div>
+                            </div>
+                            <div class="portal-card-footer">
+                                <button class="btn-outline">
+                                    <i class="fas fa-plus"></i> Request Appointment
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portal-messages">
+                        <h3><i class="fas fa-comments"></i> Messages from Your Doctor</h3>
+                        <div class="message-item">
+                            <div class="message-header">
+                                <strong>Dr. Smith</strong>
+                                <span class="message-time">March 15, 2024</span>
+                            </div>
+                            <div class="message-content">
+                                <p>Your recent CBC results show mild anemia. Please consider increasing iron-rich foods in your diet. Let's discuss in our next appointment.</p>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <div class="message-header">
+                                <strong>Lab Results Notification</strong>
+                                <span class="message-time">March 10, 2024</span>
+                            </div>
+                            <div class="message-content">
+                                <p>Your liver function test results are now available in your portal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Medical Record Section -->
+        <section id="medical-record" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-notes-medical"></i> Medical Record</h1>
+                <p>Complete patient medical history</p>
+            </div>
+            
+            <div class="medical-record-container">
+                <div class="record-search">
+                    <h3><i class="fas fa-search"></i> Find Medical Record</h3>
+                    <div class="search-section">
+                        <div class="form-group">
+                            <label for="recordPatientId">Patient ID</label>
+                            <div class="search-with-btn">
+                                <input type="text" id="recordPatientId" placeholder="Enter Patient ID" value="P-2024-001">
+                                <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="patient-summary">
+                        <div class="summary-header">
+                            <h4>John Doe</h4>
+                            <div class="patient-tags">
+                                <span class="tag">Age: 32</span>
+                                <span class="tag">Gender: Male</span>
+                                <span class="tag">Blood Type: O+</span>
+                                <span class="tag">Allergies: Penicillin</span>
+                            </div>
+                        </div>
+                        <div class="summary-stats">
+                            <div class="stat">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Total Visits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">Tests Done</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">2</div>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="stat-label">Active Issues</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Prescriptions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="record-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="tests">Test History</button>
+                        <button class="tab-btn" data-tab="visits">Clinical Visits</button>
+                        <button class="tab-btn" data-tab="prescriptions">Prescriptions</button>
+                        <button class="tab-btn" data-tab="allergies">Allergies</button>
+                        <button class="tab-btn" data-tab="vaccinations">Vaccinations</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="tests-tab">
+                        <div class="record-table">
+                            <div class="table-header">
+                                <div class="col-date">Date</div>
+                                <div class="col-test">Test Name</div>
+                                <div class="col-result">Result Summary</div>
+                                <div class="col-status">Status</div>
+                                <div class="col-actions">Actions</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-date">2024-03-15</div>
+                                <div class="col-test">Complete Blood Count (CBC)</div>
+                                <div class="col-result">Mild anemia detected</div>
+                                <div class="col-status"><span class="badge success">Completed</span></div>
+                                <div class="col-actions">
+                                    <button class="btn-icon small" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon small" title="Download"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-date">2024-03-15</div>
+                                <div class="col-test">Lipid Profile</div>
+                                <div class="col-result">Normal cholesterol levels</div>
+                                <div class="col-status"><span class="badge success">Completed</span></div>
+                                <div class="col-actions">
+                                    <button class="btn-icon small" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon small" title="Download"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-date">2024-03-10</div>
+                                <div class="col-test">Liver Function Test</div>
+                                <div class="col-result">All parameters within normal range</div>
+                                <div class="col-status"><span class="badge success">Completed</span></div>
+                                <div class="col-actions">
+                                    <button class="btn-icon small" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon small" title="Download"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<div class="col-date">2024-03-05</div>
+                                <div class="col-test">Urinalysis</div>
+                                <div class="col-result">Normal results</div>
+                                <div class="col-status"><span class="badge success">Completed</span></div>
+                                <div class="col-actions">
+                                    <button class="btn-icon small" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon small" title="Download"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="col-date">2024-02-28</div>
+                                <div class="col-test">Thyroid Panel</div>
+                                <div class="col-result">Pending review</div>
+                                <div class="col-status"><span class="badge pending">Pending</span></div>
+                                <div class="col-actions">
+                                    <button class="btn-icon small" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="visits-tab">
+                        <p>Clinical visits content will appear here.</p>
+                    </div>
+                    
+                    <div class="tab-content" id="prescriptions-tab">
+                        <p>Prescriptions content will appear here.</p>
+                    </div>
+                </div>
+                
+                <div class="record-actions">
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i> Add New Entry
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-file-export"></i> Export Full Record
+                    </button>
+                    <button class="btn-outline">
+                        <i class="fas fa-print"></i> Print Summary
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Access Control Section -->
+        <section id="access-control" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-shield-alt"></i> Access Control</h1>
+                <p>Manage user permissions and access rights</p>
+            </div>
+            
+            <div class="access-control-container">
+                <div class="access-search">
+                    <h3><i class="fas fa-search"></i> Find Patient Access Settings</h3>
+                    <div class="search-section">
+                        <div class="form-group">
+                            <label for="accessPatientId">Patient ID</label>
+                            <div class="search-with-btn">
+                                <input type="text" id="accessPatientId" placeholder="Enter Patient ID" value="P-2024-001">
+                                <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="patient-access-summary">
+                        <div class="summary-card">
+                            <div class="summary-header">
+                                <h4>John Doe</h4>
+                                <span class="patient-id">ID: P-2024-001</span>
+                            </div>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span class="label">Total Authorized Users:</span>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<span class="value">6</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Last Access Change:</span>
+                                    <span class="value">2024-03-10</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Audit Log Entries:</span>
+                                    <span class="value">142</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="access-management">
+                    <div class="access-header">
+                        <h3><i class="fas fa-user-shield"></i> Authorized Access</h3>
+                        <button class="btn-primary" id="grantAccessBtn">
+                            <i class="fas fa-user-plus"></i> Grant New Access
+                        </button>
+                    </div>
+                    
+                    <div class="access-table">
+                        <div class="table-header">
+                            <div class="col-user">User / Role</div>
+                            <div class="col-permissions">Permissions</div>
+                            <div class="col-access">Access Level</div>
+                            <div class="col-last">Last Access</div>
+                            <div class="col-actions">Actions</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-user">
+                                <div class="user-info">
+                                    <div class="user-avatar small">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Dr. Smith</strong>
+                                        <p>Primary Physician</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-permissions">
+                                <span class="permission-tag view">View Records</span>
+                                <span class="permission-tag edit">Add Notes</span>
+                                <span class="permission-tag order">Order Tests</span>
+                            </div>
+                            <div class="col-access">
+                                <span class="badge primary">Full Access</span>
+                            </div>
+                            <div class="col-last">2024-03-15 10:30</div>
+                            <div class="col-actions">
+                                <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon small danger" title="Revoke"><i class="fas fa-user-slash"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-user">
+                                <div class="user-info">
+                                    <div class="user-avatar small">
+                                        <i class="fas fa-user-nurse"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Nurse Johnson</strong>
+                                        <p>Lab Technician</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-permissions">
+                                <span class="permission-tag view">View Records</span>
+
+Haneen Zahr, [12/12/2025 12:18 PM]
+<span class="permission-tag edit">Enter Results</span>
+                            </div>
+                            <div class="col-access">
+                                <span class="badge warning">Limited</span>
+                            </div>
+                            <div class="col-last">2024-03-15 09:15</div>
+                            <div class="col-actions">
+                                <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon small danger" title="Revoke"><i class="fas fa-user-slash"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-user">
+                                <div class="user-info">
+                                    <div class="user-avatar small">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Dr. Williams (External)</strong>
+                                        <p>Consulting Specialist</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-permissions">
+                                <span class="permission-tag view">View Results</span>
+                            </div>
+                            <div class="col-access">
+                                <span class="badge info">View Only</span>
+                            </div>
+                            <div class="col-last">2024-03-14 14:20</div>
+                            <div class="col-actions">
+                                <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon small danger" title="Revoke"><i class="fas fa-user-slash"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-user">
+                                <div class="user-info">
+                                    <div class="user-avatar small">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Receptionist</strong>
+                                        <p>Front Desk</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-permissions">
+                                <span class="permission-tag view">Basic Info</span>
+                                <span class="permission-tag edit">Update Contact</span>
+                            </div>
+                            <div class="col-access">
+                                <span class="badge warning">Restricted</span>
+                            </div>
+                            <div class="col-last">2024-03-15 08:45</div>
+                            <div class="col-actions">
+                                <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon small danger" title="Revoke"><i class="fas fa-user-slash"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="col-user">
+                                <div class="user-info">
+                                    <div class="user-avatar small">
+                                        <i class="fas fa-user-injured"></i>
+                                    </div>
+                                    <div>Haneen Zahr, [12/12/2025 12:23 PM]
+<strong>John Doe</strong>
+                                        <p>Patient (Self)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-permissions">
+                                <span class="permission-tag view">Own Records</span>
+                                <span class="permission-tag edit">Request Appointments</span>
+                            </div>
+                            <div class="col-access">
+                                <span class="badge success">Self-Service</span>
+                            </div>
+                            <div class="col-last">2024-03-15 11:30</div>
+                            <div class="col-actions">
+                                <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audit-log">
+                    <h3><i class="fas fa-history"></i> Audit Trail</h3>
+                    <div class="audit-list">
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Access granted</strong> to Dr. Williams for patient John Doe</p>
+                                <span class="audit-time">2024-03-10 16:30 by Admin</span>
+                            </div>
+                        </div>
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Record viewed</strong> by Nurse Johnson</p>
+                                <span class="audit-time">2024-03-15 09:15</span>
+                            </div>
+                        </div>
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Results updated</strong> by Lab Technician Smith</p>
+                                <span class="audit-time">2024-03-15 10:05</span>
+                            </div>
+                        </div>
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Report downloaded</strong> by Patient (self-service)</p>
+                                <span class="audit-time">2024-03-15 11:30</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-outline">
+                        <i class="fas fa-download"></i> Export Audit Log
+                    </button>
+                </div>
+                
+                <div class="permission-form">
+                    <h3><i class="fas fa-key"></i> Grant New Access</h3>
+                    <div class="form-group">
+                        <label for="newUser">Select User</label>
+                        <select id="newUser">
+                            <option value="">-- Select User --</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="nurse">Nurse</option>
+                            <option value="technician">Lab Technician</option>
+
+Haneen Zahr, [12/12/2025 12:23 PM]
+<strong>John Doe</strong>
+                                        <p>Patient (Self)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-permissions">
+                                <span class="permission-tag view">Own Records</span>
+                                <span class="permission-tag edit">Request Appointments</span>
+                            </div>
+                            <div class="col-access">
+                                <span class="badge success">Self-Service</span>
+                            </div>
+                            <div class="col-last">2024-03-15 11:30</div>
+                            <div class="col-actions">
+                                <button class="btn-icon small" title="Edit"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audit-log">
+                    <h3><i class="fas fa-history"></i> Audit Trail</h3>
+                    <div class="audit-list">
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Access granted</strong> to Dr. Williams for patient John Doe</p>
+                                <span class="audit-time">2024-03-10 16:30 by Admin</span>
+                            </div>
+                        </div>
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Record viewed</strong> by Nurse Johnson</p>
+                                <span class="audit-time">2024-03-15 09:15</span>
+                            </div>
+                        </div>
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Results updated</strong> by Lab Technician Smith</p>
+                                <span class="audit-time">2024-03-15 10:05</span>
+                            </div>
+                        </div>
+                        <div class="audit-item">
+                            <div class="audit-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <div class="audit-details">
+                                <p><strong>Report downloaded</strong> by Patient (self-service)</p>
+                                <span class="audit-time">2024-03-15 11:30</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-outline">
+                        <i class="fas fa-download"></i> Export Audit Log
+                    </button>
+                </div>
+                
+                <div class="permission-form">
+                    <h3><i class="fas fa-key"></i> Grant New Access</h3>
+                    <div class="form-group">
+                        <label for="newUser">Select User</label>
+                        <select id="newUser">
+                            <option value="">-- Select User --</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="nurse">Nurse</option>
+                            <option value="technician">Lab Technician</option>
+
+Haneen Zahr, [12/12/2025 12:23 PM]
+<option value="receptionist">Receptionist</option>
+                            <option value="external">External Doctor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="accessLevel">Access Level</label>
+                        <select id="accessLevel">
+                            <option value="view">View Only</option>
+                            <option value="limited">Limited Access</option>
+                            <option value="full">Full Access</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Permissions</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span class="checkbox-custom"></span>
+                                View Patient Record
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkbox-custom"></span>
+                                Edit Patient Information
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkbox-custom"></span>
+                                Order Tests
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkbox-custom"></span>
+                                Enter Results
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkbox-custom"></span>
+                                View Billing Information
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="accessExpiry">Access Expiry Date</label>
+                        <input type="date" id="accessExpiry">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-check"></i> Grant Access
+                        </button>
+                        <button class="btn-outline">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>LIS System</h4>
+                <p>Laboratory Information System</p>
+                <p>Version 2.1.0</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> support@lissystem.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#" data-page="dashboard">Dashboard</a>
+                <a href="#" data-page="reports">Reports</a>
+                <a href="#" data-page="patient-portal">Patient Portal</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LIS System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- رابط JavaScript هنا -->
+    <script src="script.js"></script>
+
+Haneen Zahr, [12/12/2025 12:23 PM]
+</body>
+</html>
