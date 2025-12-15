@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Records & Reports System</title>
+    <title>Patient Medical System</title>
     <style>
         * {
             margin: 0;
@@ -13,8 +13,8 @@
         }
 
         body {
-            background: #f5f7fa;
-            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
         /* Navigation */
@@ -23,84 +23,74 @@
             padding: 15px 30px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #3498db;
-        }
-
-        .nav-links {
-            display: flex;
+            justify-content: center;
             gap: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-btn {
-            background: #3498db;
+            background: #667eea;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .nav-btn:hover {
-            background: #2980b9;
+            background: #5a6fd8;
+            transform: translateY(-2px);
         }
 
+        .nav-btn.active {
+            background: #764ba2;
+        }
+
+        /* Container */
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1000px;
+            margin: 80px auto 30px;
             padding: 0 20px;
         }
 
-        /* Tabs */
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
+        /* Pages */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styling */
+        .card {
             background: white;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .tab {
-            padding: 15px 30px;
-            background: transparent;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .tab.active {
-            background: #3498db;
-            color: white;
-        }
-
-        /* Form Container */
-        .form-container {
-            background: white;
+            border-radius: 15px;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
 
-        .form-container h2 {
-            color: #3498db;
+        .card h2 {
+            color: #667eea;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 2px solid #f0f2f5;
         }
 
-        /* Form Grid */
+        /* Patient Info Page */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -114,251 +104,172 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
+            color: #333;
             font-weight: 500;
-            color: #555;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #3498db;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .submit-btn {
-            background: #2ecc71;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             padding: 15px 40px;
-            border-radius: 6px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
-            background: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        /* Reports Section */
-        .reports-section {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .section-header h2 {
-            color: #3498db;
-        }
-
-        /* Reports Grid */
-        .reports-grid {
+        /* Reports Page */
+        .reports-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
         }
 
         .report-card {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            background: #f8f9fa;
+            border-radius: 10px;
             padding: 20px;
-            transition: all 0.3s;
-            position: relative;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
         }
 
         .report-card:hover {
-            border-color: #3498db;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .report-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
+            align-items: flex-start;
             margin-bottom: 15px;
         }
 
         .report-title {
-            font-size: 1.2rem;
             font-weight: 600;
-            color: #2c3e50;
+            color: #333;
+            font-size: 1.1rem;
         }
 
         .report-date {
-            background: #3498db;
-            color: white;
-            padding: 4px 10px;
+            background: #e1e5e9;
+            color: #666;
+            padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
         }
 
         .report-details {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .detail-row {
             display: flex;
             margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #f0f0f0;
         }
 
         .detail-label {
-            width: 100px;
-            color: #7f8c8d;
+            width: 80px;
+            color: #666;
             font-size: 0.9rem;
         }
 
         .detail-value {
             flex: 1;
-            font-weight: 500;
+            color: #333;
         }
 
-        .report-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
+        .report-status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        .action-btn {
-            flex: 1;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
+        .status-completed {
+            background: #d4f4e5;
+            color: #155724;
         }
 
-        .view-btn {
-            background: #3498db;
-            color: white;
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
         }
 
-        .view-btn:hover {
-            background: #2980b9;
-        }
-
-        .delete-btn {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-
-        /* Patient Summary */
+        /* Summary Section */
         .summary-section {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
 
         .summary-card {
             background: #f8f9fa;
             padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
         }
 
         .summary-value {
             font-size: 2rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: #667eea;
             margin-bottom: 5px;
         }
 
         .summary-label {
-            color: #7f8c8d;
+            color: #666;
             font-size: 0.9rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-title {
-            color: #3498db;
-            font-size: 1.5rem;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #7f8c8d;
         }
 
         /* Message */
         .message {
             position: fixed;
-            top: 20px;
+            top: 80px;
             right: 20px;
             padding: 15px 25px;
-            border-radius: 5px;
+            border-radius: 8px;
             color: white;
             z-index: 2000;
             animation: slideIn 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .message.success {
@@ -367,10 +278,6 @@
 
         .message.error {
             background: #e74c3c;
-        }
-
-        .message.info {
-            background: #3498db;
         }
 
         @keyframes slideIn {
@@ -384,233 +291,147 @@
             }
         }
 
-        /* Report Form */
-        .report-form {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+        /* No Reports Message */
+        .no-reports {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .no-reports .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                margin-top: 70px;
+                padding: 0 15px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
             .form-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .reports-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .section-header {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">🏥 Medical System</div>
-        <div class="nav-links">
-            <button class="nav-btn" onclick="showTab('patient')">Patient Info</button>
-            <button class="nav-btn" onclick="showTab('reports')">My Reports</button>
-            <button class="nav-btn" onclick="showTab('new-report')">Add Report</button>
-        </div>
+        <button class="nav-btn active" onclick="showPage('info')">Patient Information</button>
+        <button class="nav-btn" onclick="showPage('reports')">Medical Reports</button>
     </nav>
 
     <div class="container">
-        <!-- Tabs -->
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('patient')">Patient Information</button>
-            <button class="tab" onclick="showTab('reports')">Medical Reports</button>
-            <button class="tab" onclick="showTab('new-report')">Add New Report</button>
-            <button class="tab" onclick="showTab('summary')">Medical Summary</button>
-        </div>
-
-        <!-- Patient Information Tab -->
-        <div class="form-container" id="patient-tab">
-            <h2>Patient Registration Form</h2>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="patientName">Full Name *</label>
-                    <input type="text" id="patientName" placeholder="Enter full name">
+        <!-- Patient Information Page -->
+        <div class="page active" id="info-page">
+            <div class="card">
+                <h2>Patient Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Age *</label>
+                        <input type="number" id="age" placeholder="Enter your age">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender *</label>
+                        <select id="gender">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="Enter phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bloodType">Blood Type</label>
+                        <select id="bloodType">
+                            <option value="">Select Blood Type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="allergies">Allergies</label>
+                        <textarea id="allergies" rows="2" placeholder="List any allergies"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="conditions">Medical Conditions</label>
+                        <textarea id="conditions" rows="2" placeholder="List medical conditions"></textarea>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="patientAge">Age *</label>
-                    <input type="number" id="patientAge" placeholder="Enter age">
-                </div>
-                
-                <div class="form-group">
-                    <label for="patientGender">Gender *</label>
-                    <select id="patientGender">
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="patientPhone">Phone Number *</label>
-                    <input type="tel" id="patientPhone" placeholder="Enter phone number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="patientEmail">Email</label>
-                    <input type="email" id="patientEmail" placeholder="Enter email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="patientBlood">Blood Type</label>
-                    <select id="patientBlood">
-                        <option value="">Select Blood Type</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="patientAllergies">Allergies</label>
-                    <textarea id="patientAllergies" rows="3" placeholder="List any allergies"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="patientConditions">Medical Conditions</label>
-                    <textarea id="patientConditions" rows="3" placeholder="List medical conditions"></textarea>
-                </div>
+                <button class="submit-btn" onclick="savePatientInfo()">Save Information</button>
             </div>
-            
-            <button class="submit-btn" onclick="savePatientInfo()">Save Patient Information</button>
         </div>
 
-        <!-- Medical Reports Tab -->
-        <div class="reports-section" id="reports-tab" style="display: none;">
-            <div class="section-header">
+        <!-- Medical Reports Page -->
+        <div class="page" id="reports-page">
+            <div class="card">
                 <h2>Medical Reports</h2>
-                <button class="nav-btn" onclick="showTab('new-report')">➕ Add New Report</button>
+                <div class="reports-list" id="reportsList">
+                    <!-- Reports will be loaded here -->
+                </div>
             </div>
-            
-            <div class="reports-grid" id="reportsContainer">
-                <!-- Reports will be loaded here -->
-            </div>
-        </div>
 
-        <!-- Add New Report Tab -->
-        <div class="form-container" id="new-report-tab" style="display: none;">
-            <h2>Add New Medical Report</h2>
-            
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="reportTitle">Report Title *</label>
-                    <input type="text" id="reportTitle" placeholder="e.g., Blood Test Results">
+            <!-- Medical Summary -->
+            <div class="summary-section">
+                <h2 style="color: #667eea; margin-bottom: 20px;">Medical Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-value" id="totalReports">0</div>
+                        <div class="summary-label">Total Reports</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-value" id="pendingReports">0</div>
+                        <div class="summary-label">Pending Reports</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-value" id="lastReportDate">--</div>
+                        <div class="summary-label">Last Report Date</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-value" id="bloodTests">0</div>
+                        <div class="summary-label">Blood Tests</div>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="reportType">Report Type *</label>
-                    <select id="reportType">
-                        <option value="">Select Type</option>
-                        <option value="Blood Test">Blood Test</option>
-                        <option value="X-Ray">X-Ray</option>
-                        <option value="MRI Scan">MRI Scan</option>
-                        <option value="Urine Test">Urine Test</option>
-                        <option value="ECG">ECG</option>
-                        <option value="Ultrasound">Ultrasound</option>
-                        <option value="Biopsy">Biopsy</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reportDate">Report Date *</label>
-                    <input type="date" id="reportDate">
-                </div>
-                
-                <div class="form-group">
-                    <label for="reportDoctor">Doctor Name</label>
-                    <input type="text" id="reportDoctor" placeholder="Dr. Name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="reportStatus">Status</label>
-                    <select id="reportStatus">
-                        <option value="Completed">Completed</option>
-                        <option value="Pending">Pending</option>
-                        <option value="In Progress">In Progress</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="reportResults">Test Results</label>
-                <textarea id="reportResults" rows="5" placeholder="Enter test results here..."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="reportNotes">Doctor's Notes</label>
-                <textarea id="reportNotes" rows="5" placeholder="Additional notes from doctor..."></textarea>
-            </div>
-            
-            <button class="submit-btn" onclick="addNewReport()">Save Medical Report</button>
-        </div>
-
-        <!-- Medical Summary Tab -->
-        <div class="summary-section" id="summary-tab" style="display: none;">
-            <h2>Medical Summary</h2>
-            
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <div class="summary-value" id="totalReportsCount">0</div>
-                    <div class="summary-label">Total Reports</div>
-                </div>
-                
-                <div class="summary-card">
-                    <div class="summary-value" id="lastReportDate">--</div>
-                    <div class="summary-label">Last Report Date</div>
-                </div>
-                
-                <div class="summary-card">
-                    <div class="summary-value" id="pendingReports">0</div>
-                    <div class="summary-label">Pending Reports</div>
-                </div>
-                
-                <div class="summary-card">
-                    <div class="summary-value" id="bloodTests">0</div>
-                    <div class="summary-label">Blood Tests</div>
-                </div>
-            </div>
-            
-            <div style="margin-top: 30px;">
-                <h3 style="color: #3498db; margin-bottom: 15px;">Recent Reports Timeline</h3>
-                <div id="reportsTimeline">
-                    <!-- Timeline will be loaded here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Report Details Modal -->
-    <div class="modal" id="reportModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalReportTitle">Report Details</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <div id="modalContent">
-                <!-- Modal content will be loaded here -->
             </div>
         </div>
     </div>
@@ -621,11 +442,10 @@
     <script>
         // Initialize data
         let patientData = JSON.parse(localStorage.getItem('patientData')) || {
-            name: '',
+            fullName: '',
             age: '',
             gender: '',
             phone: '',
-            email: '',
             bloodType: '',
             allergies: '',
             conditions: ''
@@ -639,18 +459,25 @@
                 date: "2024-03-15",
                 doctor: "Dr. Smith",
                 status: "Completed",
-                results: "Hemoglobin: 14.2 g/dL\nWBC: 7.8 K/µL\nRBC: 4.9 M/µL",
-                notes: "All results within normal range"
+                results: "Hemoglobin: 14.2 g/dL\nWBC: 7.8 K/µL\nRBC: 4.9 M/µL"
             },
             {
                 id: 2,
-                title: "X-Ray Chest",
+                title: "Chest X-Ray",
                 type: "X-Ray",
                 date: "2024-03-10",
                 doctor: "Dr. Johnson",
                 status: "Completed",
-                results: "Clear lung fields\nNormal cardiac silhouette",
-                notes: "No abnormalities detected"
+                results: "Clear lung fields\nNormal cardiac silhouette"
+            },
+            {
+                id: 3,
+                title: "Urine Analysis",
+                type: "Urine Test",
+                date: "2024-03-05",
+                doctor: "Dr. Williams",
+                status: "Pending",
+                results: "Awaiting results"
             }
         ];
 
@@ -661,129 +488,86 @@
             updateSummary();
         });
 
-        // Tab navigation
-        function showTab(tabName) {
-            // Hide all tabs
-            document.getElementById('patient-tab').style.display = 'none';
-            document.getElementById('reports-tab').style.display = 'none';
-            document.getElementById('new-report-tab').style.display = 'none';
-            document.getElementById('summary-tab').style.display = 'none';
-            
-            // Remove active class from all tabs
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
+        // Show page function
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
             });
             
-            // Show selected tab
-            document.getElementById(tabName + '-tab').style.display = 'block';
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
             
-            // Add active class to clicked tab
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            // Add active class to clicked button
             event.target.classList.add('active');
             
-            // Update data if showing reports or summary
-            if (tabName === 'reports') {
+            // Update data if showing reports page
+            if (pageId === 'reports') {
                 loadReports();
-            } else if (tabName === 'summary') {
                 updateSummary();
             }
         }
 
         // Load patient data into form
         function loadPatientData() {
-            if (patientData.name) {
-                document.getElementById('patientName').value = patientData.name;
-                document.getElementById('patientAge').value = patientData.age;
-                document.getElementById('patientGender').value = patientData.gender;
-                document.getElementById('patientPhone').value = patientData.phone;
-                document.getElementById('patientEmail').value = patientData.email;
-                document.getElementById('patientBlood').value = patientData.bloodType;
-                document.getElementById('patientAllergies').value = patientData.allergies;
-                document.getElementById('patientConditions').value = patientData.conditions;
+            if (patientData.fullName) {
+                document.getElementById('fullName').value = patientData.fullName;
+                document.getElementById('age').value = patientData.age;
+                document.getElementById('gender').value = patientData.gender;
+                document.getElementById('phone').value = patientData.phone;
+                document.getElementById('bloodType').value = patientData.bloodType;
+                document.getElementById('allergies').value = patientData.allergies;
+                document.getElementById('conditions').value = patientData.conditions;
             }
         }
 
         // Save patient information
         function savePatientInfo() {
-            const name = document.getElementById('patientName').value.trim();
-            const age = document.getElementById('patientAge').value.trim();
-            const gender = document.getElementById('patientGender').value;
-            const phone = document.getElementById('patientPhone').value.trim();
+            const fullName = document.getElementById('fullName').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const gender = document.getElementById('gender').value;
+            const phone = document.getElementById('phone').value.trim();
             
-            if (!name || !age || !gender || !phone) {
+            if (!fullName || !age || !gender || !phone) {
                 showMessage('Please fill all required fields (Name, Age, Gender, Phone)', 'error');
                 return;
             }
             
             patientData = {
-                name: name,
+                fullName: fullName,
                 age: age,
                 gender: gender,
                 phone: phone,
-                email: document.getElementById('patientEmail').value.trim(),
-                bloodType: document.getElementById('patientBlood').value,
-                allergies: document.getElementById('patientAllergies').value.trim(),
-                conditions: document.getElementById('patientConditions').value.trim()
+                bloodType: document.getElementById('bloodType').value,
+                allergies: document.getElementById('allergies').value.trim(),
+                conditions: document.getElementById('conditions').value.trim()
             };
             
             localStorage.setItem('patientData', JSON.stringify(patientData));
             showMessage('Patient information saved successfully!', 'success');
         }
 
-        // Add new medical report
-        function addNewReport() {
-            const title = document.getElementById('reportTitle').value.trim();
-            const type = document.getElementById('reportType').value;
-            const date = document.getElementById('reportDate').value;
-            
-            if (!title || !type || !date) {
-                showMessage('Please fill all required fields', 'error');
-                return;
-            }
-            
-            const newReport = {
-                id: Date.now(),
-                title: title,
-                type: type,
-                date: date,
-                doctor: document.getElementById('reportDoctor').value.trim(),
-                status: document.getElementById('reportStatus').value,
-                results: document.getElementById('reportResults').value.trim(),
-                notes: document.getElementById('reportNotes').value.trim()
-            };
-            
-            reports.push(newReport);
-            localStorage.setItem('medicalReports', JSON.stringify(reports));
-            
-            // Clear form
-            document.getElementById('reportTitle').value = '';
-            document.getElementById('reportType').value = '';
-            document.getElementById('reportDate').value = '';
-            document.getElementById('reportDoctor').value = '';
-            document.getElementById('reportResults').value = '';
-            document.getElementById('reportNotes').value = '';
-            
-            showMessage('Medical report added successfully!', 'success');
-            showTab('reports');
-        }
-
         // Load and display reports
         function loadReports() {
-            const container = document.getElementById('reportsContainer');
-            container.innerHTML = '';
+            const container = document.getElementById('reportsList');
             
             if (reports.length === 0) {
                 container.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: #7f8c8d;">
-                        <div style="font-size: 3rem; margin-bottom: 15px;">📋</div>
-                        <h3>No Reports Yet</h3>
-                        <p>Add your first medical report to get started</p>
-                        <button class="nav-btn" onclick="showTab('new-report')" style="margin-top: 15px;">
-                            Add First Report
-                        </button>
+                    <div class="no-reports">
+                        <div class="icon">📋</div>
+                        <h3>No Medical Reports Available</h3>
+                        <p>No medical reports have been added yet.</p>
                     </div>
                 `;
                 return;
             }
+            
+            container.innerHTML = '';
             
             // Sort by date (newest first)
             const sortedReports = [...reports].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -812,13 +596,7 @@
                         <div class="detail-row">
                             <div class="detail-label">Status:</div>
                             <div class="detail-value">
-                                <span style="
-                                    background: ${report.status === 'Completed' ? '#2ecc71' : report.status === 'Pending' ? '#e74c3c' : '#f39c12'};
-                                    color: white;
-                                    padding: 3px 10px;
-                                    border-radius: 20px;
-                                    font-size: 0.85rem;
-                                ">
+                                <span class="report-status ${report.status === 'Completed' ? 'status-completed' : 'status-pending'}">
                                     ${report.status}
                                 </span>
                             </div>
@@ -827,18 +605,9 @@
                         ${report.results ? `
                         <div class="detail-row">
                             <div class="detail-label">Results:</div>
-                            <div class="detail-value" style="color: #2c3e50;">${truncateText(report.results, 50)}</div>
+                            <div class="detail-value" style="color: #333;">${report.results.substring(0, 100)}${report.results.length > 100 ? '...' : ''}</div>
                         </div>
                         ` : ''}
-                    </div>
-                    
-                    <div class="report-actions">
-                        <button class="action-btn view-btn" onclick="viewReport(${report.id})">
-                            View Details
-                        </button>
-                        <button class="action-btn delete-btn" onclick="deleteReport(${report.id})">
-                            Delete
-                        </button>
                     </div>
                 `;
                 
@@ -846,195 +615,26 @@
             });
         }
 
-        // View report details
-        function viewReport(reportId) {
-            const report = reports.find(r => r.id === reportId);
-            if (!report) return;
-            
-            document.getElementById('modalReportTitle').textContent = report.title;
-            
-            document.getElementById('modalContent').innerHTML = `
-                <div style="margin-bottom: 20px;">
-                    <div style="display: grid; gap: 10px;">
-                        <div>
-                            <strong>Report Type:</strong> ${report.type}
-                        </div>
-                        <div>
-                            <strong>Date:</strong> ${formatDate(report.date)}
-                        </div>
-                        <div>
-                            <strong>Doctor:</strong> ${report.doctor || 'Not specified'}
-                        </div>
-                        <div>
-                            <strong>Status:</strong> 
-                            <span style="
-                                background: ${report.status === 'Completed' ? '#2ecc71' : report.status === 'Pending' ? '#e74c3c' : '#f39c12'};
-                                color: white;
-                                padding: 3px 10px;
-                                border-radius: 20px;
-                                font-size: 0.85rem;
-                            ">
-                                ${report.status}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                ${report.results ? `
-                <div style="margin-bottom: 20px;">
-                    <strong>Test Results:</strong>
-                    <div style="
-                        background: #f8f9fa;
-                        padding: 15px;
-                        border-radius: 5px;
-                        margin-top: 10px;
-                        white-space: pre-line;
-                        font-family: monospace;
-                    ">
-                        ${report.results}
-                    </div>
-                </div>
-                ` : ''}
-                
-                ${report.notes ? `
-                <div style="margin-bottom: 20px;">
-                    <strong>Doctor's Notes:</strong>
-                    <div style="
-                        background: #f8f9fa;
-                        padding: 15px;
-                        border-radius: 5px;
-                        margin-top: 10px;
-                        white-space: pre-line;
-                    ">
-                        ${report.notes}
-                    </div>
-                </div>
-                ` : ''}
-                
-                <div style="display: flex; gap: 10px; margin-top: 20px;">
-                    <button class="action-btn view-btn" onclick="printReport(${report.id})" style="flex: 1;">
-                        Print Report
-                    </button>
-                    <button class="action-btn delete-btn" onclick="deleteReport(${report.id})" style="flex: 1;">
-                        Delete Report
-                    </button>
-                </div>
-            `;
-            
-            document.getElementById('reportModal').style.display = 'flex';
-        }
-
-        // Delete report
-        function deleteReport(reportId) {
-            if (confirm('Are you sure you want to delete this report?')) {
-                reports = reports.filter(r => r.id !== reportId);
-                localStorage.setItem('medicalReports', JSON.stringify(reports));
-                loadReports();
-                updateSummary();
-                closeModal();
-                showMessage('Report deleted successfully!', 'success');
-            }
-        }
-
-        // Print report
-        function printReport(reportId) {
-            const report = reports.find(r => r.id === reportId);
-            if (!report) return;
-            
-            const printContent = `
-                <div style="font-family: Arial, sans-serif; padding: 20px;">
-                    <h1 style="color: #3498db;">Medical Report</h1>
-                    <hr>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <h3>${report.title}</h3>
-                        <p><strong>Date:</strong> ${formatDate(report.date)}</p>
-                        <p><strong>Type:</strong> ${report.type}</p>
-                        <p><strong>Doctor:</strong> ${report.doctor || 'Not specified'}</p>
-                        <p><strong>Status:</strong> ${report.status}</p>
-                    </div>
-                    
-                    ${report.results ? `
-                    <div style="margin-bottom: 20px;">
-                        <h4>Test Results:</h4>
-                        <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${report.results}</pre>
-                    </div>
-                    ` : ''}
-                    
-                    ${report.notes ? `
-                    <div style="margin-bottom: 20px;">
-                        <h4>Doctor's Notes:</h4>
-                        <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${report.notes}</div>
-                    </div>
-                    ` : ''}
-                    
-                    <hr>
-                    <p style="color: #7f8c8d; font-size: 0.9rem;">
-                        Generated from Medical System on ${new Date().toLocaleDateString()}
-                    </p>
-                </div>
-            `;
-            
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(printContent);
-            printWindow.document.close();
-            printWindow.print();
-        }
-
-        // Update medical summary
+        // Update summary statistics
         function updateSummary() {
-            // Update counts
-            document.getElementById('totalReportsCount').textContent = reports.length;
-            
-            // Last report date
-            if (reports.length > 0) {
-                const sorted = [...reports].sort((a, b) => new Date(b.date) - new Date(a.date));
-                document.getElementById('lastReportDate').textContent = formatDate(sorted[0].date);
-            }
+            // Total reports
+            document.getElementById('totalReports').textContent = reports.length;
             
             // Pending reports
             const pending = reports.filter(r => r.status === 'Pending').length;
             document.getElementById('pendingReports').textContent = pending;
             
+            // Last report date
+            if (reports.length > 0) {
+                const sorted = [...reports].sort((a, b) => new Date(b.date) - new Date(a.date));
+                document.getElementById('lastReportDate').textContent = formatDate(sorted[0].date);
+            } else {
+                document.getElementById('lastReportDate').textContent = '--';
+            }
+            
             // Blood tests count
             const bloodTests = reports.filter(r => r.type === 'Blood Test').length;
             document.getElementById('bloodTests').textContent = bloodTests;
-            
-            // Update timeline
-            updateTimeline();
-        }
-
-        // Update reports timeline
-        function updateTimeline() {
-            const timeline = document.getElementById('reportsTimeline');
-            timeline.innerHTML = '';
-            
-            if (reports.length === 0) return;
-            
-            const sortedReports = [...reports].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
-            
-            sortedReports.forEach(report => {
-                const timelineItem = document.createElement('div');
-                timelineItem.className = 'report-card';
-                timelineItem.style.marginBottom = '10px';
-                timelineItem.style.padding = '15px';
-                
-                timelineItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <strong>${report.title}</strong>
-                            <div style="color: #7f8c8d; font-size: 0.9rem; margin-top: 5px;">
-                                ${report.type} • ${report.doctor || 'No doctor specified'}
-                            </div>
-                        </div>
-                        <div style="color: #3498db; font-weight: 500;">
-                            ${formatDate(report.date)}
-                        </div>
-                    </div>
-                `;
-                
-                timeline.appendChild(timelineItem);
-            });
         }
 
         // Helper functions
@@ -1045,15 +645,6 @@
                 month: 'short',
                 day: 'numeric'
             });
-        }
-
-        function truncateText(text, maxLength) {
-            if (text.length <= maxLength) return text;
-            return text.substring(0, maxLength) + '...';
-        }
-
-        function closeModal() {
-            document.getElementById('reportModal').style.display = 'none';
         }
 
         function showMessage(message, type) {
@@ -1067,13 +658,6 @@
                 messageDiv.remove();
             }, 3000);
         }
-
-        // Close modal when clicking outside
-        document.getElementById('reportModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
     </script>
 </body>
 </html>
